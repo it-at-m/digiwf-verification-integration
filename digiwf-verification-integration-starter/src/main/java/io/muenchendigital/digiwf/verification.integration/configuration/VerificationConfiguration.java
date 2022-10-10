@@ -23,10 +23,11 @@ import java.util.Map;
 @RequiredArgsConstructor
 @AutoConfigureBefore({StreamingConfiguration.class})
 @ComponentScan(basePackages = {"io.muenchendigital.digiwf.verification.integration"})
-@EnableConfigurationProperties({CustomVerificationProperties.class})
+@EnableConfigurationProperties({VerificationProperties.class})
 public class VerificationConfiguration {
 
-    private final CustomVerificationProperties customVerificationProperties;
+    private final VerificationProperties verificationProperties;
+
     public static final String TYPE_HEADER_GET_VERIFICATION_LINK = "getVerificationLink";
 
     /**
@@ -37,7 +38,7 @@ public class VerificationConfiguration {
     @Bean
     @ConditionalOnMissingBean
     public LinkService getLinkService() {
-        return new LinkService(customVerificationProperties.getBaseAddress());
+        return new LinkService(verificationProperties.getBaseAddress());
     }
 
     /**

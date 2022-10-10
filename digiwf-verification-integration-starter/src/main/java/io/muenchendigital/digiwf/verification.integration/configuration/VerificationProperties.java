@@ -7,7 +7,7 @@ import javax.validation.constraints.NotBlank;
 
 @Data
 @ConfigurationProperties(prefix = "io.muenchendigital.digiwf.verification.integration")
-public class CustomVerificationProperties {
+public class VerificationProperties {
 
     /**
      * Url of the verification service.

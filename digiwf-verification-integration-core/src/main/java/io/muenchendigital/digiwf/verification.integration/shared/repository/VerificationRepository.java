@@ -5,6 +5,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
+/**
+ * Repository to persist the verifications.
+ */
 public interface VerificationRepository extends JpaRepository<VerificationEntity, String> {
 
     Optional<VerificationEntity> findByProcessInstanceIdAndCorrelationKey(String processInstanceId, String correlationKey);

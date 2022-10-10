@@ -5,6 +5,9 @@ import lombok.RequiredArgsConstructor;
 
 import java.util.UUID;
 
+/**
+ * Service to create the verification link.
+ */
 @RequiredArgsConstructor
 public class LinkService {
 

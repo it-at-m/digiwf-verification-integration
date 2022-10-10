@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * Web endpoint to receive the activated token.
+ */
 @RestController
 @RequiredArgsConstructor
 @Slf4j
