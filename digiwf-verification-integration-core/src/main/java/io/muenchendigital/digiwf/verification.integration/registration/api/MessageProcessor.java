@@ -36,13 +36,13 @@ public class MessageProcessor {
      * @return the consumer
      */
     @Bean
-    public Consumer<Message<Registration>> getVerifiactionLink() {
+    public Consumer<Message<Registration>> getVerificationLink() {
         return message -> {
             log.info("Processing new registration from eventbus");
             final Registration registration = message.getPayload();
             log.debug("Registration: {}", registration);
             try {
-                final String link = registrationService.getVerificationLink(registration, (String) message.getHeaders().get(StreamingConstants.HEADER_PROCESS_INSTANCE_ID));
+                final String link = registrationService.getVerificationLink(registration);
                 emitResponse(message.getHeaders(), link);
             } catch (final RegistrationException e) {
                 log.error("Registration failed: {}", e.getMessage());

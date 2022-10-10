@@ -10,6 +10,9 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.util.UUID;
 
+/**
+ * Service to register a verification.
+ */
 @RequiredArgsConstructor
 @Slf4j
 public class RegistrationService {
@@ -17,29 +20,28 @@ public class RegistrationService {
     final VerificationRepository verificationRepository;
     final LinkService linkService;
 
-    public String getVerificationLink(final Registration registration, final String processInstanceId) throws RegistrationException {
-        log.info("Get verification link for: {}", registration.getCorrelationKey());
+    public String getVerificationLink(final Registration registration) throws RegistrationException {
+        log.info("Get verification link for: {} ({})", registration.getProcessInstanceId(), registration.getMessageName());
 
-        if (StringUtils.isEmpty(registration.getCorrelationKey())) {
+        if (StringUtils.isEmpty(registration.getMessageName())) {
             throw new RegistrationException("No correlation key provided");
         }
-        if (verificationRepository.findByProcessInstanceIdAndCorrelationKey(processInstanceId, registration.getCorrelationKey()).isPresent()){
+        if (verificationRepository.findByProcessInstanceIdAndCorrelationKey(registration.getProcessInstanceId(), registration.getMessageName()).isPresent()){
             throw new RegistrationException("Correlation key already exists");
         }
         final UUID token = generateToken();
-        persistVerification(registration, processInstanceId, token);
+        persistVerification(registration, token);
 
         final String link = linkService.generateLink(token);
         log.debug("Generated link: {}", link);
         return link;
     }
 
-    private void persistVerification(final Registration registration, final String processInstanceId, final UUID token) {
+    private void persistVerification(final Registration registration, final UUID token) {
         final VerificationEntity verificationEntity = VerificationEntity.builder()
-                .correlationKey(registration.getCorrelationKey())
-                .processInstanceId(processInstanceId)
+                .correlationKey(registration.getMessageName())
+                .processInstanceId(registration.getProcessInstanceId())
                 .expiryTime(registration.getExpiryTime())
-                .subject(registration.getSubject())
                 .token(token.toString())
                 .build();
 

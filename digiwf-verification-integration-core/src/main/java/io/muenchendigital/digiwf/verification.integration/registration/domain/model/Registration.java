@@ -4,12 +4,17 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Data for a verification registration.
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Registration {
 
-    private String correlationKey;
+    private String processInstanceId;
+
+    private String messageName;
 
     private java.time.LocalDateTime expiryTime;
 

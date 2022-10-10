@@ -20,9 +20,10 @@ public class ExampleController {
     @GetMapping(value = "/getVerificationLink")
     public void getVerificationLink() {
         final Registration registration = new Registration();
-        registration.setCorrelationKey("dummy");
+        registration.setMessageName("emailVerified");
+        registration.setProcessInstanceId("1234567890");
         try {
-            registrationService.getVerificationLink(registration, "1234567890");
+            registrationService.getVerificationLink(registration);
         } catch (final Exception e) {
             log.error(e.toString());
         }
