@@ -24,8 +24,7 @@ public class ExampleController {
         registration.setMessageName("emailVerified");
         registration.setProcessInstanceId("1234567890");
         try {
-            String link = registrationService.getVerificationLink(registration);
-            log.debug("Link: {}", link);
+            registrationService.getVerificationLink(registration);
         } catch (final Exception e) {
             log.error(e.toString());
         }
