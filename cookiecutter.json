@@ -1,0 +1,6 @@
+{
+    "name": "DigiwfIntegration",
+    "artifactId": "digiwf-integration-template",
+    "artifactIdLower": "{{cookiecutter.artifactId.replace('-', '')|lower}}",
+    "groupId": "io.muenchendigital.digiwf"
+}

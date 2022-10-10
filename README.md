@@ -1,6 +1,11 @@
 <div id="top"></div>
 
 <!-- PROJECT SHIELDS -->
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
 
 <!-- END OF PROJECT SHIELDS -->
 
@@ -8,112 +13,60 @@
 <br />
 <div align="center">
   <a href="#">
-    <img src="/images/logo.png" alt="Logo" height="200">
+    <img src="images/logo.png" alt="Logo" height="200">
   </a>
 
-<h3 align="center">DigiWF E-Mail Integration</h3>
+<h3 align="center">DigiWF <i>Integration Template</i></h3>
 
   <p align="center">
-    This is a Spring Boot Starter library to send e-mails in the DigiWF environment.
-    It can be used to send mails asynchronously through a spring cloud stream compatible event broker.<br>For attachments to not clutter the EventBus,
-    paths to file locations on the S3-Filer are expected. The file is then grabbed by this library to avoid sending
-    large files repeatedly through the EventBus.
-<br /><a href="#">Report Bug</a>
+    <i>Cookiecutter for Spring Boot Starters</i>
+    <br /><a href="https://github.com/it-at-m/digiwf-integration-template/issues">Report Bug</a>
     ·
-    <a href="#">Request Feature</a>
+    <a href="https://github.com/it-at-m/digiwf-integration-template/issues">Request Feature</a>
   </p>
 </div>
 
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#roadmap">Roadmap</a>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-    </li>
-    <li>
-      <a href="#Documentation">Documentation</a>
-    </li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ol>
-</details>
-
 <!-- ABOUT THE PROJECT -->
-
 ## About The Project
 
-The goal of this library is enabling async mail dispatching with a EventBus and a S3-Filer as your environment.
-
-Features:
-
-* Can be used to dispatch emails asynchronously through an eventbus.
-* Can inform the receiver through an eventbus if the email has been sent or if there was a problem.
-* Can get attachment files from an S3-Filer, no need to get them yourself and send it through the EventBus several
-  times. Less clutter in your EventBus!
-
+*Cookiecutter for Spring Boot Starters.*
 <p align="right">(<a href="#top">back to top</a>)</p>
+
+
 
 ### Built With
 
-This project is built with:
+The documentation project is built with technologies we use in our projects:
 
-* [Spring Boot](https://spring.io/projects/spring-boot)
-* [Spring Cloud Stream](https://spring.io/projects/spring-cloud-stream)
-* [DigiWF Spring Cloudstream Utils](https://github.com/it-at-m/digiwf-spring-cloudstream-utils)
-* [DigiWF S3 Integration](https://github.com/it-at-m/digiwf-s3-integration)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-<!-- ROADMAP -->
-
-## Roadmap
-
-See the [open issues](#) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-## Getting started
-
-For an explanation on how to get started, please refer to
-the [quickstart doc](https://github.com/it-at-m/digiwf-email-integration/blob/add-docs/docs/quickstart.md).
+* Spring Boot
+* [Cookiecutter](https://cookiecutter.readthedocs.io/en/stable/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Documentation
 
-For all further documentation, please refer to
-the [documentations doc](https://github.com/it-at-m/digiwf-email-integration/blob/add-docs/docs/documentation.md).
+Install [Cookiecutter](https://cookiecutter.readthedocs.io/en/stable/installation.html)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+**Usage**
 
-## Architecture
+````bash
+cookiecutter https://github.com/it-at-m/digiwf-integration-template
+````
 
-For a small impression of the architecture, please refer to
-the [architecture doc](https://github.com/it-at-m/digiwf-email-integration/blob/add-docs/docs/architecture.md).
+**Important Notice**
+
+The default java package is `io.muenchendigital.digiwf`.
+If you want to use a different java package you have to change the directory structure manually.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- CONTRIBUTING -->
-
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any
-contributions you make are **greatly appreciated**.
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-If you have a suggestion that would make this better, please open an issue with the tag "enhancement", fork the repo and
-create a pull request. You can also simply open an issue with the tag "enhancement". Don't forget to give the project a
-star! Thanks again!
+If you have a suggestion that would make this better, please open an issue with the tag "enhancement", fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+Don't forget to give the project a star! Thanks again!
 
 1. Open an issue with the tag "enhancement"
 2. Fork the Project
@@ -128,7 +81,6 @@ More about this in the [CODE_OF_CONDUCT](/CODE_OF_CONDUCT.md) file.
 
 
 <!-- LICENSE -->
-
 ## License
 
 Distributed under the MIT License. See `LICENSE` file for more information.
@@ -138,7 +90,6 @@ Distributed under the MIT License. See `LICENSE` file for more information.
 
 
 <!-- CONTACT -->
-
 ## Contact
 
 it@m - opensource@muenchendigital.io
@@ -150,3 +101,13 @@ it@m - opensource@muenchendigital.io
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/it-at-m/digiwf-integration-template.svg?style=for-the-badge
+[contributors-url]: https://github.com/it-at-m/digiwf-integration-template/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/it-at-m/digiwf-integration-template.svg?style=for-the-badge
+[forks-url]: https://github.com/it-at-m/digiwf-integration-template/network/members
+[stars-shield]: https://img.shields.io/github/stars/it-at-m/digiwf-integration-template.svg?style=for-the-badge
+[stars-url]: https://github.com/it-at-m/digiwf-integration-template/stargazers
+[issues-shield]: https://img.shields.io/github/issues/it-at-m/digiwf-integration-template.svg?style=for-the-badge
+[issues-url]: https://github.com/it-at-m/digiwf-integration-template/issues
+[license-shield]: https://img.shields.io/github/license/it-at-m/digiwf-integration-template.svg?style=for-the-badge
+[license-url]: https://github.com/it-at-m/digiwf-integration-template/blob/master/LICENSE
