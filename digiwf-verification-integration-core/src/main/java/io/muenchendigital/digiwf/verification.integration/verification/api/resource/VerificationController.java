@@ -22,9 +22,6 @@ public class VerificationController {
 
     @GetMapping(value = ENDPOINT_VERIFICATION)
     public String verify(@RequestParam final String token) {
-        if (StringUtils.isEmpty(token)){ // TODO: possible?
-            return "Fehler: kein Token vorhanden";
-        }
         try {
             verificationService.verify(token);
         } catch (final VerificationTokenNotFoundException e) {

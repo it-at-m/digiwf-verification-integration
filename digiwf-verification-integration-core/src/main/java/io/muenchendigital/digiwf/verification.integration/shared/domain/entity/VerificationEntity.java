@@ -16,8 +16,8 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Entity(name = "Verification")
 @Table(name = "VERIFICATION",
-        uniqueConstraints=@UniqueConstraint(columnNames = {"processInstanceId", "correlationKey"}),
-        indexes = @Index(name = "IDX_PROCINSTID_CORRKEY", columnList = "processInstanceId, correlationKey")
+        uniqueConstraints=@UniqueConstraint(columnNames = {"PROCESS_INSTANCE_ID", "CORRELATION_KEY"}),
+        indexes = @Index(name = "IDX_PROCINSTID_CORRKEY", columnList = "PROCESS_INSTANCE_ID, CORRELATION_KEY")
 )
 public class VerificationEntity {
 

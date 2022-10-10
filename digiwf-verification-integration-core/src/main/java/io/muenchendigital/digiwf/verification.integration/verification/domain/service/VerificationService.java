@@ -48,12 +48,11 @@ public class VerificationService {
     }
 
     private void sendCorrelateMessage(final VerificationEntity verificationEntity) throws CorrelationException {
-        final Map headers = new HashMap();
+        final Map<String,Object> headers = new HashMap<>();
         headers.put(StreamingConstants.HEADER_PROCESS_INSTANCE_ID, verificationEntity.getProcessInstanceId());
+        headers.put(StreamingConstants.HEADER_MESSAGE_NAME, verificationEntity.getCorrelationKey());
         final Map<String, Object> correlatePayload = new HashMap<>();
-        correlatePayload.put(verificationEntity.getCorrelationKey(), true); // TODO: ?
-        correlatePayload.put("correlationKey", verificationEntity.getCorrelationKey()); // TODO: ?
-        correlatePayload.put("subject", verificationEntity.getSubject()); // TODO: ?
+        correlatePayload.put(StreamingConstants.PROPERTY_SUBJECT, verificationEntity.getSubject());
         final boolean result = correlateMessageService.sendCorrelateMessage(new MessageHeaders(headers), correlatePayload);
         if (!result) {
             throw new CorrelationException();
