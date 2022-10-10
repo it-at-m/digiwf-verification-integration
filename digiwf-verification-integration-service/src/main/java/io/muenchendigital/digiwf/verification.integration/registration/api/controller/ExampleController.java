@@ -19,11 +19,13 @@ public class ExampleController {
 
     @GetMapping(value = "/getVerificationLink")
     public void getVerificationLink() {
+        log.debug("Incoming request for verification token");
         final Registration registration = new Registration();
         registration.setMessageName("emailVerified");
         registration.setProcessInstanceId("1234567890");
         try {
-            registrationService.getVerificationLink(registration);
+            String link = registrationService.getVerificationLink(registration);
+            log.debug("Link: {}", link);
         } catch (final Exception e) {
             log.error(e.toString());
         }

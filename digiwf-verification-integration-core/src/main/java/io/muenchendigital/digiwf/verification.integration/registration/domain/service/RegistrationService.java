@@ -21,7 +21,7 @@ public class RegistrationService {
     final LinkService linkService;
 
     public String getVerificationLink(final Registration registration) throws RegistrationException {
-        log.info("Get verification link for: {} ({})", registration.getProcessInstanceId(), registration.getMessageName());
+        log.debug("Get verification link for: {} ({})", registration.getProcessInstanceId(), registration.getMessageName());
 
         if (StringUtils.isEmpty(registration.getMessageName())) {
             throw new RegistrationException("No correlation key provided");
@@ -33,13 +33,13 @@ public class RegistrationService {
         persistVerification(registration, token);
 
         final String link = linkService.generateLink(token);
-        log.debug("Generated link: {}", link);
+        log.info("Generated link: {}", link);
         return link;
     }
 
     private void persistVerification(final Registration registration, final UUID token) {
         final VerificationEntity verificationEntity = VerificationEntity.builder()
-                .correlationKey(registration.getMessageName())
+                .messageName(registration.getMessageName())
                 .processInstanceId(registration.getProcessInstanceId())
                 .expiryTime(registration.getExpiryTime())
                 .token(token.toString())

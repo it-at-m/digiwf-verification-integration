@@ -25,18 +25,20 @@ public class VerificationController {
 
     @GetMapping(value = ENDPOINT_VERIFICATION)
     public String verify(@RequestParam final String token) {
+        log.info("Incoming verification for token: {}", token);
         try {
             verificationService.verify(token);
         } catch (final VerificationTokenNotFoundException e) {
-            log.warn("Verification failed: {}", e.toString());
+            log.warn("Verification token not found: {}", token);
             return "Fehler: Der Token wurde nicht gefunden";
         } catch (final VerificationExpiredException e) {
-            log.warn("Verification failed: {}", e.toString());
+            log.warn("Verification expired for token: {}", token);
             return "Fehler: Die Bestätigungsfrist ist abgelaufen";
         } catch (final CorrelationException e) {
-            log.error("Correlation failed: {}", e.toString());
+            log.error("Correlation failed for token: {}", token);
             return "Fehler: Die Bestätigung konnte leider nicht zugestellt werden";
         }
+        log.info("Verification successful");
         return "Geschafft: vielen Dank für Ihre Bestätigung";
     }
 

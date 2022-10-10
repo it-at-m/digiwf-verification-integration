@@ -31,9 +31,9 @@ public class VerificationConfiguration {
     public static final String TYPE_HEADER_GET_VERIFICATION_LINK = "getVerificationLink";
 
     /**
-     * Configures the {@link RegistrationService}
+     * Configures the {@link LinkService}
      *
-     * @return configured RegistrationService
+     * @return configured LinkService
      */
     @Bean
     @ConditionalOnMissingBean

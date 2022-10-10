@@ -44,9 +44,11 @@ public class MessageProcessor {
             try {
                 final String link = registrationService.getVerificationLink(registration);
                 emitResponse(message.getHeaders(), link);
-            } catch (final RegistrationException e) {
+            } catch (final Exception e) {
                 log.error("Registration failed: {}", e.getMessage());
-                emitError(message.getHeaders(), "Registration failed" );
+                if (!emitError(message.getHeaders(), "Registration failed" )){
+                    log.error("Emitting registration error failed");
+                }
             }
         };
     }
@@ -57,10 +59,12 @@ public class MessageProcessor {
      * @param messageHeaders    The MessageHeaders of the incoming message you want to correlate your answer to
      * @param verificationLink  the link to verify one's declarations
      */
-    public void emitResponse(final MessageHeaders messageHeaders, final String verificationLink) {
+    public void emitResponse(final MessageHeaders messageHeaders, final String verificationLink) throws RegistrationException {
         final Map<String, Object> correlatePayload = new HashMap<>();
         correlatePayload.put(VERIFICATION_LINK, verificationLink);
-        correlateMessageService.sendCorrelateMessage(messageHeaders, correlatePayload);
+        if (!correlateMessageService.sendCorrelateMessage(messageHeaders, correlatePayload)){
+            throw new RegistrationException("Emitting response failed");
+        }
     }
 
     /**
@@ -69,7 +73,7 @@ public class MessageProcessor {
      * @param messageHeaders The MessageHeaders of the incoming message you want to correlate your answer to
      * @param message        The error message
      */
-    public void emitError(final MessageHeaders messageHeaders, final String message) {
-        incidentService.sendIncident(messageHeaders, message);
+    public boolean emitError(final MessageHeaders messageHeaders, final String message) {
+        return incidentService.sendIncident(messageHeaders, message);
     }
 }

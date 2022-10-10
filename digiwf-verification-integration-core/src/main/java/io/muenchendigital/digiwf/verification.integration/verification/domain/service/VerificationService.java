@@ -27,11 +27,11 @@ public class VerificationService {
     private final CorrelateMessageService correlateMessageService;
 
     public void verify(final String token) throws VerificationTokenNotFoundException, VerificationExpiredException, CorrelationException {
-        log.info("Verifying token: {}", token);
+        log.debug("Verifying token: {}", token);
         final Optional<VerificationEntity> verificationEntity = verificationRepository.findByToken(token);
 
         if (verificationEntity.isEmpty()){
-            throw new VerificationTokenNotFoundException("Verification not found for token: " + token);
+            throw new VerificationTokenNotFoundException();
         }
 
         if (verificationEntity.get().getExpiryTime() != null && LocalDateTime.now().isAfter(verificationEntity.get().getExpiryTime())){
@@ -41,6 +41,7 @@ public class VerificationService {
         sendCorrelateMessage(verificationEntity.get());
 
         deleteVerification(verificationEntity.get());
+        log.debug("Verification finished");
     }
 
     private void deleteVerification(final VerificationEntity verificationEntity) {
@@ -48,15 +49,17 @@ public class VerificationService {
     }
 
     private void sendCorrelateMessage(final VerificationEntity verificationEntity) throws CorrelationException {
+        log.info("Correlate verification to process instance: {} ({})", verificationEntity.getProcessInstanceId(), verificationEntity.getMessageName());
         final Map<String,Object> headers = new HashMap<>();
         headers.put(StreamingConstants.HEADER_PROCESS_INSTANCE_ID, verificationEntity.getProcessInstanceId());
-        headers.put(StreamingConstants.HEADER_MESSAGE_NAME, verificationEntity.getCorrelationKey());
+        headers.put(StreamingConstants.HEADER_MESSAGE_NAME, verificationEntity.getMessageName());
         final Map<String, Object> correlatePayload = new HashMap<>();
         correlatePayload.put(StreamingConstants.PROPERTY_SUBJECT, verificationEntity.getSubject());
         final boolean result = correlateMessageService.sendCorrelateMessage(new MessageHeaders(headers), correlatePayload);
         if (!result) {
             throw new CorrelationException();
         }
+        log.debug("Correlation successful");
     }
 
 }
