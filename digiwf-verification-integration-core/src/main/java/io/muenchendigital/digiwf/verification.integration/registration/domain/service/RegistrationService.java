@@ -26,7 +26,7 @@ public class RegistrationService {
         if (StringUtils.isEmpty(registration.getMessageName())) {
             throw new RegistrationException("No correlation key provided");
         }
-        if (verificationRepository.findByProcessInstanceIdAndCorrelationKey(registration.getProcessInstanceId(), registration.getMessageName()).isPresent()){
+        if (verificationRepository.findByProcessInstanceIdAndMessageName(registration.getProcessInstanceId(), registration.getMessageName()).isPresent()){
             throw new RegistrationException("Correlation key already exists");
         }
         final UUID token = generateToken();
