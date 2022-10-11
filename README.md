@@ -12,24 +12,51 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="#">
+  <a href="https://github.com/it-at-m/digiwf-verification-integration">
     <img src="images/logo.png" alt="Logo" height="200">
   </a>
 
-<h3 align="center">DigiWF <i>Integration Template</i></h3>
+<h3 align="center">DigiWF Verification Integration</h3>
 
   <p align="center">
-    <i>Cookiecutter for Spring Boot Starters</i>
+    This is a Spring Boot Starter library to integrate the verification service within the DigiWF environment.
     <br /><a href="https://github.com/it-at-m/digiwf-integration-template/issues">Report Bug</a>
     ·
     <a href="https://github.com/it-at-m/digiwf-integration-template/issues">Request Feature</a>
   </p>
 </div>
 
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+    </li>
+    <li>
+      <a href="#Documentation">Documentation</a>
+    </li>
+    <li>
+      <a href="#Architecture">Architecture</a>
+    </li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
+
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-*Cookiecutter for Spring Boot Starters.*
+The goal of this library is to provide a service able to get a verification registered 
+and return a verification link which later can be used to verify any data by confirmation.  
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
@@ -38,20 +65,29 @@
 
 The documentation project is built with technologies we use in our projects:
 
-* Spring Boot
-* [Cookiecutter](https://cookiecutter.readthedocs.io/en/stable/)
+* [Spring Boot](https://spring.io/projects/spring-boot)
+* [Spring Cloud Stream](https://spring.io/projects/spring-cloud-stream)
+* [DigiWF Spring Cloudstream Utils](https://github.com/it-at-m/digiwf-spring-cloudstream-utils)
+
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- GETTING STARTED -->
+
+## Getting started
+
+For an explanation on how to get started, please refer to
+the [quickstart doc](https://github.com/it-at-m/digiwf-verification-integration/blob/dev/docs/quickstart.md).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Documentation
 
-Install [Cookiecutter](https://cookiecutter.readthedocs.io/en/stable/installation.html)
+For all further documentation, please refer to
+the [documentations doc](https://github.com/it-at-m/digiwf-verification-integration/blob/dev/docs/documentation.md).
 
-**Usage**
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-````bash
-cookiecutter https://github.com/it-at-m/digiwf-integration-template
-````
 
 **Important Notice**
 
@@ -59,6 +95,14 @@ The default java package is `io.muenchendigital.digiwf`.
 If you want to use a different java package you have to change the directory structure manually.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
+## Architecture
+
+For a small impression of the architecture, please refer to
+the [architecture doc](https://github.com/it-at-m/digiwf-verification-integration/blob/dev/docs/architecture.md).
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 
 <!-- CONTRIBUTING -->
 ## Contributing
