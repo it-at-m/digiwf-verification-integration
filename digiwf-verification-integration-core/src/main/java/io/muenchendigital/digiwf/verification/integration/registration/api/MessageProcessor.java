@@ -33,7 +33,7 @@ public class MessageProcessor {
     /**
      * All messages from the route "register" go here.
      *
-     * @return the consumer
+     * @return  the consumer
      */
     @Bean
     public Consumer<Message<Registration>> getVerificationLink() {
@@ -59,11 +59,11 @@ public class MessageProcessor {
      * @param messageHeaders    The MessageHeaders of the incoming message you want to correlate your answer to
      * @param verificationLink  the link to verify one's declarations
      */
-    public void emitResponse(final MessageHeaders messageHeaders, final String verificationLink) throws RegistrationException {
+    public void emitResponse(final MessageHeaders messageHeaders, final String verificationLink) {
         final Map<String, Object> correlatePayload = new HashMap<>();
         correlatePayload.put(VERIFICATION_LINK, verificationLink);
         if (!correlateMessageService.sendCorrelateMessage(messageHeaders, correlatePayload)){
-            throw new RegistrationException("Emitting response failed");
+            throw new RuntimeException("Emitting response failed");
         }
     }
 

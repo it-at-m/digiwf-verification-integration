@@ -20,6 +20,12 @@ public class RegistrationService {
     final VerificationRepository verificationRepository;
     final LinkService linkService;
 
+    /**
+     * Validates and persists a registration returning a unique link for verification.
+     *
+     * @param registration  all informations for the expected verification
+     * @return  the verification link to the service
+     */
     public String getVerificationLink(final Registration registration) throws RegistrationException {
         log.debug("Get verification link for: {} ({})", registration.getProcessInstanceId(), registration.getMessageName());
 

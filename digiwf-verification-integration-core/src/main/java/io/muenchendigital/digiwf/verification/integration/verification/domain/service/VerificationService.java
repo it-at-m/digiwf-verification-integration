@@ -26,6 +26,14 @@ public class VerificationService {
     private final VerificationRepository verificationRepository;
     private final CorrelateMessageService correlateMessageService;
 
+    /**
+     * Verifies an incoming token and sends the deposited data to the event bus.
+     *
+     * @param token     the unique token to validate
+     * @throws VerificationTokenNotFoundException   when token is not found in storage
+     * @throws VerificationExpiredException     when the expiryTime of the verification is reached
+     * @throws CorrelationException     when the delivery to the event bus failed
+     */
     public void verify(final String token) throws VerificationTokenNotFoundException, VerificationExpiredException, CorrelationException {
         log.debug("Verifying token: {}", token);
         final Optional<VerificationEntity> verificationEntity = verificationRepository.findByToken(token);
