@@ -1,42 +1,62 @@
-## Customize this file after creating the new REPO and remove this lines.
-What to adjust:  
-* Add the your project or repo name direct under the logo.
-* Add a short and long desciption.
-* Add links for your final repo to report a bug or request a feature.
-* Add list of used technologies.
-* If you have, add a roadmap or remove this section.
-* Fill up the section for set up and documentation.
- * Start in this file only with documentation and link to the docs folder.
-* Add project shields. Use [shields.io](https://shields.io/)
-
-## ------- end to remove -------
 <div id="top"></div>
 
 <!-- PROJECT SHIELDS -->
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
 
 <!-- END OF PROJECT SHIELDS -->
 
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="#">
-    <img src="/images/logo.png" alt="Logo" height="200">
+  <a href="https://github.com/it-at-m/digiwf-verification-integration">
+    <img src="images/logo.png" alt="Logo" height="200">
   </a>
 
-<h3 align="center">DigiWF <i>repo or project name</i></h3>
+<h3 align="center">DigiWF Verification Integration</h3>
 
   <p align="center">
-    <i>Add a here a short description</i>
-    <br /><a href="#">Report Bug</a>
+    This is a Spring Boot Starter library to integrate the verification service within the DigiWF environment.
+    <br /><a href="https://github.com/it-at-m/digiwf-integration-template/issues">Report Bug</a>
     ·
-    <a href="#">Request Feature</a>
+    <a href="https://github.com/it-at-m/digiwf-integration-template/issues">Request Feature</a>
   </p>
 </div>
+
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+    </li>
+    <li>
+      <a href="#Documentation">Documentation</a>
+    </li>
+    <li>
+      <a href="#Architecture">Architecture</a>
+    </li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-*Add a description from your project here.*
+The goal of this library is to provide a service able to get a verification registered 
+and return a verification link which later can be used to verify any data by confirmation.  
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
@@ -45,29 +65,44 @@ What to adjust:
 
 The documentation project is built with technologies we use in our projects:
 
-* *write here the list of used technologies*
+* [Spring Boot](https://spring.io/projects/spring-boot)
+* [Spring Cloud Stream](https://spring.io/projects/spring-cloud-stream)
+* [DigiWF Spring Cloudstream Utils](https://github.com/it-at-m/digiwf-spring-cloudstream-utils)
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-<!-- ROADMAP -->
-## Roadmap
+<!-- GETTING STARTED -->
 
-*if you have a ROADMAP for your project add this here*
+## Getting started
 
-
-See the [open issues](#) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-## Set up
-*how can i start and fly this project*
+For an explanation on how to get started, please refer to
+the [quickstart doc](https://github.com/it-at-m/digiwf-verification-integration/blob/dev/docs/quickstart.md).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Documentation
-*what insights do you have to tell*
+
+For all further documentation, please refer to
+the [documentations doc](https://github.com/it-at-m/digiwf-verification-integration/blob/dev/docs/documentation.md).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
+
+**Important Notice**
+
+The default java package is `io.muenchendigital.digiwf`.
+If you want to use a different java package you have to change the directory structure manually.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+## Architecture
+
+For a small impression of the architecture, please refer to
+the [architecture doc](https://github.com/it-at-m/digiwf-verification-integration/blob/dev/docs/architecture.md).
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -110,3 +145,13 @@ it@m - opensource@muenchendigital.io
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/it-at-m/digiwf-integration-template.svg?style=for-the-badge
+[contributors-url]: https://github.com/it-at-m/digiwf-integration-template/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/it-at-m/digiwf-integration-template.svg?style=for-the-badge
+[forks-url]: https://github.com/it-at-m/digiwf-integration-template/network/members
+[stars-shield]: https://img.shields.io/github/stars/it-at-m/digiwf-integration-template.svg?style=for-the-badge
+[stars-url]: https://github.com/it-at-m/digiwf-integration-template/stargazers
+[issues-shield]: https://img.shields.io/github/issues/it-at-m/digiwf-integration-template.svg?style=for-the-badge
+[issues-url]: https://github.com/it-at-m/digiwf-integration-template/issues
+[license-shield]: https://img.shields.io/github/license/it-at-m/digiwf-integration-template.svg?style=for-the-badge
+[license-url]: https://github.com/it-at-m/digiwf-integration-template/blob/master/LICENSE
